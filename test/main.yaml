@@ -1,0 +1,8 @@
+- name: "test"
+  hosts: localhost
+  roles:
+    - { role: logstash }
+    - { role: filebeat }
+    - { role: elasticsearch }
+    - { role: kibana }
+    - { role: nginx }

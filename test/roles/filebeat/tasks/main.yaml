@@ -1,0 +1,13 @@
+- name: "create filebeat container"
+  docker_container:
+     name: filebeat
+     user: root
+     image: docker.elastic.co/beats/filebeat:6.3.1
+     privileged: yes
+     networks: 
+       - name: "elk"
+     state: started
+     volumes:
+       - /root/test/share/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+       - /var/lib/docker/containers:/var/lib/docker/containers
+  tags: filebeat

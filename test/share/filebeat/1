@@ -1,0 +1,9 @@
+filebeat.prospectors:
+- input_type: log
+  paths:
+    - /var/log/*.log
+  document_type: docker
+  json.message_key: log
+
+output.logstash:
+  hosts: ["172.22.1.209:5044"]

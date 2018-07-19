@@ -1,0 +1,22 @@
+filebeat.prospectors:
+- input_type: log
+  paths: 
+     - /var/lib/docker/containers/*/*.log
+  document_type: docker
+  json.message_key: log
+  json.keys_under_root: true
+  reload.enabled: false
+
+processors:
+- add_cloud_metadata:
+
+output.logstash:
+  hosts: ["logstash:5044"]
+
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644

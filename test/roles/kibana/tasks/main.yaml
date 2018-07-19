@@ -1,0 +1,12 @@
+- name: "create kibana container"
+  docker_container:
+     name: kibana
+     image: docker.elastic.co/kibana/kibana:5.2.2
+     networks:
+        - name: "elk"
+     ports:
+        - 5601:5601
+     volumes:
+        - /root/test/share/kibana:/usr/share/kibana/config
+     state: started
+  tags: kibana

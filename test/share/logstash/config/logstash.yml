@@ -1,0 +1,11 @@
+http.host: "0.0.0.0"
+pipeline:
+  batch:
+    size: 125
+    delay: 50
+pipeline.id: testpipeline
+path.config: /usr/share/logstash/config/testpipeline.conf
+pipeline.workers: 2
+pipeline.output.workers: 2
+queue.type: memory
+log.level: debug

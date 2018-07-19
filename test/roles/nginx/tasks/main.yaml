@@ -1,0 +1,13 @@
+- name: "create nginx container"
+  docker_container:
+     name: nginx
+     image: nginx 
+     networks: 
+       - name: "elk"
+     ports:
+       8080:8080
+     state: started
+     volumes:
+       - /root/test/share/nginx/kibana.conf:/etc/nginx/conf.d/kibana.conf
+       - /root/test/share/nginx/htpasswd:/etc/nginx/conf.d/htpasswd
+  tags: nginx
