@@ -19,3 +19,4 @@ ansible-playbook main.yaml
 
 *dont forget to change the working directory path on the configuration files in oredr to match yours
 
+sudo sysctl -w vm.max_map_count=262144
